@@ -187,10 +187,6 @@ export default function App() {
                 />
               </label>
 
-              <p className="consent-note">
-                By using this prank tool, you agree that entered names may be stored for fun stats.
-              </p>
-
               <button type="submit" className="primary-button" disabled={isLoading}>
                 {isLoading ? "Calculating..." : "Calculate Love"}
               </button>

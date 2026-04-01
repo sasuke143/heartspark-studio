@@ -1,13 +1,14 @@
-module.exports = async function handler(req, res) {
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
-  return res.status(200).json({ ok: true });
-};
-}
+  const { yourName, partnerName, consentedAt, source } = req.body || {};
+
+  if (!yourName || !partnerName) {
+    return res.status(400).json({ ok: false, error: "Missing names" });
+  }
 
   const payload = {
     yourName: String(yourName).slice(0, 80),
@@ -39,6 +40,5 @@ export default async function handler(req, res) {
       console.error("Webhook forwarding error:", error);
     }
   }
-
   return res.status(200).json({ ok: true });
-};
+}

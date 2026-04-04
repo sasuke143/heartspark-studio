@@ -31,8 +31,6 @@ export default async function handler(req, res) {
         body: JSON.stringify({
   content: `HeartSpark Studio submission\n${payload.yourName} + ${payload.partnerName}\n${payload.consentedAt}`
 })
-
-        })
       });
 
       if (!response.ok) {

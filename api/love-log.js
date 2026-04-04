@@ -20,6 +20,8 @@ export default async function handler(req, res) {
   console.log("Love calculator submission:", payload);
 
   const webhookUrl = process.env.WEBHOOK_URL;
+  console.log("Webhook configured:", Boolean(webhookUrl));
+
 
   if (webhookUrl) {
     try {
